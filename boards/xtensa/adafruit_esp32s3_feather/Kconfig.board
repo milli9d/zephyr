@@ -1,0 +1,17 @@
+# XIAO ESP32S3 board configuration
+
+# Copyright (c) 2023 Seeed Studio inc.
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_ADAFRUIT_ESP32S3_N8
+	bool "Adafruit Feather ESP32S3 8MB RAM NO PSRAM"
+	depends on SOC_SERIES_ESP32S3
+
+config BOARD_ADAFRUIT_ESP32S3_N8R8
+	bool "Adafruit Feather ESP32S3 8MB RAM 8MB PSRAM"
+	depends on SOC_SERIES_ESP32S3
+
+choice SOC_PART_NUMBER
+	default SOC_ESP32S3_WROOM_N8 if BOARD_ADAFRUIT_ESP32S3_N8
+	default SOC_ESP32S3_WROOM_N8R8 if BOARD_ADAFRUIT_ESP32S3_N8R8
+endchoice
